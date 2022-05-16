@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/modules/Exec.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/modules/</a> Exec.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.99% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>98/99</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>33/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>19/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>97/97</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: GPL-2.0-or-later
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "../BaseLogic.sol";
+import "../IRiskManager.sol";
+import "../PToken.sol";
+import "../Interfaces.sol";
+import "../Utils.sol";
+&nbsp;
+&nbsp;
+/// @notice Definition of callback method that deferLiquidityCheck will invoke on your contract
+interface IDeferredLiquidityCheck {
+    function onDeferredLiquidityCheck(bytes memory data) external;
+}
+&nbsp;
+&nbsp;
+/// @notice Batch executions, liquidity check deferrals, and interfaces to fetch prices and account liquidity
+contract Exec is BaseLogic {
+    constructor(bytes32 moduleGitCommit_) BaseLogic(MODULEID__EXEC, moduleGitCommit_) {}
+&nbsp;
+    /// @notice Single item in a batch request
+    struct EulerBatchItem {
+        bool allowError;
+        address proxyAddr;
+        bytes data;
+    }
+&nbsp;
+    /// @notice Single item in a batch response
+    struct EulerBatchItemResponse {
+        bool success;
+        bytes result;
+    }
+&nbsp;
+    // Accessors
+&nbsp;
+    /// @notice Compute aggregate liquidity for an account
+    /// @param account User address
+    /// @return status Aggregate liquidity (sum of all entered assets)
+    function liquidity(address account) external staticDelegate returns (IRiskManager.LiquidityStatus memory status) {
+        bytes memory result = callInternalModule(MODULEID__RISK_MANAGER,
+                                                 abi.encodeWithSelector(IRiskManager.computeLiquidity.selector, account));
+&nbsp;
+        (status) = abi.decode(result, (IRiskManager.LiquidityStatus));
+    }
+&nbsp;
+    /// @notice Compute detailed liquidity for an account, broken down by asset
+    /// @param account User address
+    /// @return assets List of user's entered assets and each asset's corresponding liquidity
+    function detailedLiquidity(address account) public staticDelegate returns (IRiskManager.AssetLiquidity[] memory assets) {
+        bytes memory result = callInternalModule(MODULEID__RISK_MANAGER,
+                                                 abi.encodeWithSelector(IRiskManager.computeAssetLiquidities.selector, account));
+&nbsp;
+        (assets) = abi.decode(result, (IRiskManager.AssetLiquidity[]));
+    }
+&nbsp;
+    /// @notice Retrieve Euler's view of an asset's price
+    /// @param underlying Token address
+    /// @return twap Time-weighted average price
+    /// @return twapPeriod TWAP duration, either the twapWindow value in AssetConfig, or less if that duration not available
+    function getPrice(address underlying) external staticDelegate returns (uint twap, uint twapPeriod) {
+        bytes memory result = callInternalModule(MODULEID__RISK_MANAGER,
+                                                 abi.encodeWithSelector(IRiskManager.getPrice.selector, underlying));
+&nbsp;
+        (twap, twapPeriod) = abi.decode(result, (uint, uint));
+    }
+&nbsp;
+    /// @notice Retrieve Euler's view of an asset's price, as well as the current marginal price on uniswap
+    /// @param underlying Token address
+    /// @return twap Time-weighted average price
+    /// @return twapPeriod TWAP duration, either the twapWindow value in AssetConfig, or less if that duration not available
+    /// @return currPrice The current marginal price on uniswap3 (informational: not used anywhere in the Euler protocol)
+    function getPriceFull(address underlying) external staticDelegate returns (uint twap, uint twapPeriod, uint currPrice) {
+        bytes memory result = callInternalModule(MODULEID__RISK_MANAGER,
+                                                 abi.encodeWithSelector(IRiskManager.getPriceFull.selector, underlying));
+&nbsp;
+        (twap, twapPeriod, currPrice) = abi.decode(result, (uint, uint, uint));
+    }
+&nbsp;
+&nbsp;
+    // Custom execution methods
+&nbsp;
+    /// @notice Defer liquidity checking for an account, to perform rebalancing, flash loans, etc. msg.sender must implement IDeferredLiquidityCheck
+    /// @param account The account to defer liquidity for. Usually address(this), although not always
+    /// @param data Passed through to the onDeferredLiquidityCheck() callback, so contracts don't need to store transient data in storage
+    function deferLiquidityCheck(address account, bytes memory data) external reentrantOK {
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        require(accountLookup[account].deferLiquidityStatus == DEFERLIQUIDITY__NONE, "e/defer/reentrancy");
+        accountLookup[account].deferLiquidityStatus = DEFERLIQUIDITY__CLEAN;
+&nbsp;
+        IDeferredLiquidityCheck(msgSender).onDeferredLiquidityCheck(data);
+&nbsp;
+        uint8 status = accountLookup[account].deferLiquidityStatus;
+        accountLookup[account].deferLiquidityStatus = DEFERLIQUIDITY__NONE;
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (status == DEFERLIQUIDITY__DIRTY) checkLiquidity(account);
+    }
+&nbsp;
+    /// @notice Execute several operations in a single transaction
+    /// @param items List of operations to execute
+    /// @param deferLiquidityChecks List of user accounts to defer liquidity checks for
+    /// @return List of operation results
+    function batchDispatch(EulerBatchItem[] calldata items, address[] calldata deferLiquidityChecks) public reentrantOK returns (EulerBatchItemResponse[] memory) {
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        for (uint i = 0; i &lt; deferLiquidityChecks.length; ++i) {
+            address account = deferLiquidityChecks[i];
+&nbsp;
+            require(accountLookup[account].deferLiquidityStatus == DEFERLIQUIDITY__NONE, "e/batch/reentrancy");
+            accountLookup[account].deferLiquidityStatus = DEFERLIQUIDITY__CLEAN;
+        }
+&nbsp;
+&nbsp;
+        EulerBatchItemResponse[] memory response = new EulerBatchItemResponse[](items.length);
+&nbsp;
+        for (uint i = 0; i &lt; items.length; ++i) {
+            EulerBatchItem calldata item = items[i];
+            address proxyAddr = item.proxyAddr;
+&nbsp;
+            uint32 moduleId = trustedSenders[proxyAddr].moduleId;
+            address moduleImpl = trustedSenders[proxyAddr].moduleImpl;
+&nbsp;
+            require(moduleId != 0, "e/batch/unknown-proxy-addr");
+            require(moduleId &lt;= MAX_EXTERNAL_MODULEID, "e/batch/call-to-internal-module");
+&nbsp;
+            if (moduleImpl == address(0)) moduleImpl = moduleLookup[moduleId];
+            require(moduleImpl != address(0), "e/batch/module-not-installed");
+&nbsp;
+            bytes memory inputWrapped = abi.encodePacked(item.data, uint160(msgSender), uint160(proxyAddr));
+            (bool success, bytes memory result) = moduleImpl.delegatecall(inputWrapped);
+&nbsp;
+            if (success || item.allowError) {
+                EulerBatchItemResponse memory r = response[i];
+                r.success = success;
+                r.result = result;
+            } else {
+                revertBytes(result);
+            }
+        }
+&nbsp;
+&nbsp;
+        for (uint i = 0; i &lt; deferLiquidityChecks.length; ++i) {
+            address account = deferLiquidityChecks[i];
+&nbsp;
+            uint8 status = accountLookup[account].deferLiquidityStatus;
+            accountLookup[account].deferLiquidityStatus = DEFERLIQUIDITY__NONE;
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (status == DEFERLIQUIDITY__DIRTY) checkLiquidity(account);
+        }
+&nbsp;
+        return response;
+    }
+&nbsp;
+    /// @notice Results of a batchDispatch, but with extra information
+    struct EulerBatchExtra {
+        EulerBatchItemResponse[] responses;
+        uint gasUsed;
+        IRiskManager.AssetLiquidity[][] liquidities;
+    }
+&nbsp;
+    /// @notice Call batchDispatch, but return extra information. Only intended to be used with callStatic.
+    /// @param items List of operations to execute
+    /// @param deferLiquidityChecks List of user accounts to defer liquidity checks for
+    /// @param queryLiquidity List of user accounts to return detailed liquidity information for
+    /// @return output Structure with extra information
+    function batchDispatchExtra(EulerBatchItem[] calldata items, address[] calldata deferLiquidityChecks, address[] calldata queryLiquidity) external reentrantOK returns (EulerBatchExtra memory output) {
+        {
+            uint origGasLeft = gasleft();
+            output.responses = batchDispatch(items, deferLiquidityChecks);
+            output.gasUsed = origGasLeft - gasleft();
+        }
+&nbsp;
+        output.liquidities = new IRiskManager.AssetLiquidity[][](queryLiquidity.length);
+&nbsp;
+        for (uint i = 0; i &lt; queryLiquidity.length; ++i) {
+            output.liquidities[i] = detailedLiquidity(queryLiquidity[i]);
+        }
+    }
+&nbsp;
+&nbsp;
+    // Average liquidity tracking
+&nbsp;
+    /// @notice Enable average liquidity tracking for your account. Operations will cost more gas, but you may get additional benefits when performing liquidations
+    /// @param subAccountId subAccountId 0 for primary, 1-255 for a sub-account. 
+    /// @param delegate An address of another account that you would allow to use the benefits of your account's average liquidity (use the null address if you don't care about this). The other address must also reciprocally delegate to your account.
+    /// @param onlyDelegate Set this flag to skip tracking average liquidity and only set the delegate.
+    function trackAverageLiquidity(uint subAccountId, address delegate, bool onlyDelegate) external nonReentrant {
+        address msgSender = unpackTrailingParamMsgSender();
+        address account = getSubAccount(msgSender, subAccountId);
+        require(account != delegate, "e/track-liquidity/self-delegation");
+&nbsp;
+        emit DelegateAverageLiquidity(account, delegate);
+        accountLookup[account].averageLiquidityDelegate = delegate;
+&nbsp;
+        if (onlyDelegate) return;
+&nbsp;
+        emit TrackAverageLiquidity(account);
+&nbsp;
+        accountLookup[account].lastAverageLiquidityUpdate = uint40(block.timestamp);
+        accountLookup[account].averageLiquidity = 0;
+    }
+&nbsp;
+    /// @notice Disable average liquidity tracking for your account and remove delegate
+    /// @param subAccountId subAccountId 0 for primary, 1-255 for a sub-account
+    function unTrackAverageLiquidity(uint subAccountId) external nonReentrant {
+        address msgSender = unpackTrailingParamMsgSender();
+        address account = getSubAccount(msgSender, subAccountId);
+&nbsp;
+        emit UnTrackAverageLiquidity(account);
+        emit DelegateAverageLiquidity(account, address(0));
+&nbsp;
+        accountLookup[account].lastAverageLiquidityUpdate = 0;
+        accountLookup[account].averageLiquidity = 0;
+        accountLookup[account].averageLiquidityDelegate = address(0);
+    }
+&nbsp;
+    /// @notice Retrieve the average liquidity for an account
+    /// @param account User account (xor in subAccountId, if applicable)
+    /// @return The average liquidity, in terms of the reference asset, and post risk-adjustment
+    function getAverageLiquidity(address account) external nonReentrant returns (uint) {
+        return getUpdatedAverageLiquidity(account);
+    }
+&nbsp;
+    /// @notice Retrieve the average liquidity for an account or a delegate account, if set
+    /// @param account User account (xor in subAccountId, if applicable)
+    /// @return The average liquidity, in terms of the reference asset, and post risk-adjustment
+    function getAverageLiquidityWithDelegate(address account) external nonReentrant returns (uint) {
+        return getUpdatedAverageLiquidityWithDelegate(account);
+    }
+&nbsp;
+    /// @notice Retrieve the account which delegates average liquidity for an account, if set
+    /// @param account User account (xor in subAccountId, if applicable)
+    /// @return The average liquidity delegate account
+    function getAverageLiquidityDelegateAccount(address account) external view returns (address) {
+        address delegate = accountLookup[account].averageLiquidityDelegate;
+        return accountLookup[delegate].averageLiquidityDelegate == account ? delegate : address(0);
+    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+    // PToken wrapping/unwrapping
+&nbsp;
+    /// @notice Transfer underlying tokens from sender's wallet into the pToken wrapper. Allowance should be set for the euler address.
+    /// @param underlying Token address
+    /// @param amount The amount to wrap in underlying units
+    function pTokenWrap(address underlying, uint amount) external nonReentrant {
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        emit PTokenWrap(underlying, msgSender, amount);
+&nbsp;
+        address pTokenAddr = reversePTokenLookup[underlying];
+        require(pTokenAddr != address(0), "e/exec/ptoken-not-found");
+&nbsp;
+        {
+            uint origBalance = IERC20(underlying).balanceOf(pTokenAddr);
+            Utils.safeTransferFrom(underlying, msgSender, pTokenAddr, amount);
+            uint newBalance = IERC20(underlying).balanceOf(pTokenAddr);
+            require(newBalance == origBalance + amount, "e/exec/ptoken-transfer-mismatch");
+        }
+&nbsp;
+        PToken(pTokenAddr).claimSurplus(msgSender);
+    }
+&nbsp;
+    /// @notice Transfer underlying tokens from the pToken wrapper to the sender's wallet.
+    /// @param underlying Token address
+    /// @param amount The amount to unwrap in underlying units
+    function pTokenUnWrap(address underlying, uint amount) external nonReentrant {
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        emit PTokenUnWrap(underlying, msgSender, amount);
+&nbsp;
+        address pTokenAddr = reversePTokenLookup[underlying];
+        require(pTokenAddr != address(0), "e/exec/ptoken-not-found");
+&nbsp;
+        PToken(pTokenAddr).forceUnwrap(msgSender, amount);
+    }
+&nbsp;
+    /// @notice Apply EIP2612 signed permit on a target token from sender to euler contract
+    /// @param token Token address
+    /// @param value Allowance value
+    /// @param deadline Permit expiry timestamp
+    /// @param v secp256k1 signature v
+    /// @param r secp256k1 signature r
+    /// @param s secp256k1 signature s
+    function usePermit(address token, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s) external nonReentrant {
+        require(underlyingLookup[token].eTokenAddress != address(0), "e/exec/market-not-activated");
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        IERC20Permit(token).permit(msgSender, address(this), value, deadline, v, r, s);
+    }
+&nbsp;
+    /// @notice Apply DAI like (allowed) signed permit on a target token from sender to euler contract
+    /// @param token Token address
+    /// @param nonce Sender nonce
+    /// @param expiry Permit expiry timestamp
+    /// @param allowed If true, set unlimited allowance, otherwise set zero allowance
+    /// @param v secp256k1 signature v
+    /// @param r secp256k1 signature r
+    /// @param s secp256k1 signature s
+    function usePermitAllowed(address token, uint256 nonce, uint256 expiry, bool allowed, uint8 v, bytes32 r, bytes32 s) external nonReentrant {
+        require(underlyingLookup[token].eTokenAddress != address(0), "e/exec/market-not-activated");
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        IERC20Permit(token).permit(msgSender, address(this), nonce, expiry, allowed, v, r, s);
+    }
+&nbsp;
+    /// @notice Apply allowance to tokens expecting the signature packed in a single bytes param
+    /// @param token Token address
+    /// @param value Allowance value
+    /// @param deadline Permit expiry timestamp
+    /// @param signature secp256k1 signature encoded as rsv
+    function usePermitPacked(address token, uint256 value, uint256 deadline, bytes calldata signature) external nonReentrant {
+        require(underlyingLookup[token].eTokenAddress != address(0), "e/exec/market-not-activated");
+        address msgSender = unpackTrailingParamMsgSender();
+&nbsp;
+        IERC20Permit(token).permit(msgSender, address(this), value, deadline, signature);
+    }
+&nbsp;
+    /// @notice Execute a staticcall to an arbitrary address with an arbitrary payload.
+    /// @param contractAddress Address of the contract to call
+    /// @param payload Encoded call payload
+    /// @return result Encoded return data
+    /// @dev Intended to be used in static-called batches, to e.g. provide detailed information about the impacts of the simulated operation.
+    function doStaticCall(address contractAddress, bytes memory payload) external view returns (bytes memory) {
+        (bool success, bytes memory result) = contractAddress.staticcall(payload);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!success) <span class="cstat-no" title="statement not covered" >revertBytes(result)</span>;
+&nbsp;
+        assembly {
+            return(add(32, result), mload(result))
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon May 16 2022 12:21:20 GMT+0100 (British Summer Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

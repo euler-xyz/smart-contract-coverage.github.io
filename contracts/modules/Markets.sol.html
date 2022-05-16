@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/modules/Markets.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/modules/</a> Markets.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>78/78</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>28/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>20/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>78/78</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">506×</span>
+<span class="cline-any cline-yes">505×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">518×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">517×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">514×</span>
+<span class="cline-any cline-yes">514×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">513×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">513×</span>
+<span class="cline-any cline-yes">513×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">507×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1231×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">733×</span>
+<span class="cline-any cline-yes">733×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">926×</span>
+<span class="cline-any cline-yes">926×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">115×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">496×</span>
+<span class="cline-any cline-yes">496×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">496×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">495×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: GPL-2.0-or-later
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "../BaseLogic.sol";
+import "../IRiskManager.sol";
+import "../PToken.sol";
+&nbsp;
+&nbsp;
+/// @notice Activating and querying markets, and maintaining entered markets lists
+contract Markets is BaseLogic {
+    constructor(bytes32 moduleGitCommit_) BaseLogic(MODULEID__MARKETS, moduleGitCommit_) {}
+&nbsp;
+    /// @notice Create an Euler pool and associated EToken and DToken addresses.
+    /// @param underlying The address of an ERC20-compliant token. There must be an initialised uniswap3 pool for the underlying/reference asset pair.
+    /// @return The created EToken, or the existing EToken if already activated.
+    function activateMarket(address underlying) external nonReentrant returns (address) {
+        require(pTokenLookup[underlying] == address(0), "e/markets/invalid-token");
+        return doActivateMarket(underlying);
+    }
+&nbsp;
+    function doActivateMarket(address underlying) private returns (address) {
+        // Pre-existing
+&nbsp;
+        if (underlyingLookup[underlying].eTokenAddress != address(0)) return underlyingLookup[underlying].eTokenAddress;
+&nbsp;
+&nbsp;
+        // Validation
+&nbsp;
+        require(trustedSenders[underlying].moduleId == 0 &amp;&amp; underlying != address(this), "e/markets/invalid-token");
+&nbsp;
+        uint8 decimals = IERC20(underlying).decimals();
+        require(decimals &lt;= 18, "e/too-many-decimals");
+&nbsp;
+&nbsp;
+        // Get risk manager parameters
+&nbsp;
+        IRiskManager.NewMarketParameters memory params;
+&nbsp;
+        {
+            bytes memory result = callInternalModule(MODULEID__RISK_MANAGER,
+                                                     abi.encodeWithSelector(IRiskManager.getNewMarketParameters.selector, underlying));
+            (params) = abi.decode(result, (IRiskManager.NewMarketParameters));
+        }
+&nbsp;
+&nbsp;
+        // Create proxies
+&nbsp;
+        address childEToken = params.config.eTokenAddress = _createProxy(MODULEID__ETOKEN);
+        address childDToken = _createProxy(MODULEID__DTOKEN);
+&nbsp;
+&nbsp;
+        // Setup storage
+&nbsp;
+        underlyingLookup[underlying] = params.config;
+&nbsp;
+        dTokenLookup[childDToken] = childEToken;
+&nbsp;
+        AssetStorage storage assetStorage = eTokenLookup[childEToken];
+&nbsp;
+        assetStorage.underlying = underlying;
+        assetStorage.pricingType = params.pricingType;
+        assetStorage.pricingParameters = params.pricingParameters;
+&nbsp;
+        assetStorage.dTokenAddress = childDToken;
+&nbsp;
+        assetStorage.lastInterestAccumulatorUpdate = uint40(block.timestamp);
+        assetStorage.underlyingDecimals = decimals;
+        assetStorage.interestRateModel = uint32(MODULEID__IRM_DEFAULT);
+        assetStorage.reserveFee = type(uint32).max; // default
+&nbsp;
+        assetStorage.interestAccumulator = INITIAL_INTEREST_ACCUMULATOR;
+&nbsp;
+&nbsp;
+        emit MarketActivated(underlying, childEToken, childDToken);
+&nbsp;
+        return childEToken;
+    }
+&nbsp;
+    /// @notice Create a pToken and activate it on Euler. pTokens are protected wrappers around assets that prevent borrowing.
+    /// @param underlying The address of an ERC20-compliant token. There must already be an activated market on Euler for this underlying, and it must have a non-zero collateral factor.
+    /// @return The created pToken, or an existing one if already activated.
+    function activatePToken(address underlying) external nonReentrant returns (address) {
+        require(pTokenLookup[underlying] == address(0), "e/nested-ptoken");
+&nbsp;
+        if (reversePTokenLookup[underlying] != address(0)) return reversePTokenLookup[underlying];
+&nbsp;
+        {
+            AssetConfig memory config = resolveAssetConfig(underlying);
+            require(config.collateralFactor != 0, "e/ptoken/not-collateral");
+        }
+ 
+        address pTokenAddr = address(new PToken(address(this), underlying));
+&nbsp;
+        pTokenLookup[pTokenAddr] = underlying;
+        reversePTokenLookup[underlying] = pTokenAddr;
+&nbsp;
+        emit PTokenActivated(underlying, pTokenAddr);
+&nbsp;
+        doActivateMarket(pTokenAddr);
+&nbsp;
+        return pTokenAddr;
+    }
+&nbsp;
+&nbsp;
+    // General market accessors
+&nbsp;
+    /// @notice Given an underlying, lookup the associated EToken
+    /// @param underlying Token address
+    /// @return EToken address, or address(0) if not activated
+    function underlyingToEToken(address underlying) external view returns (address) {
+        return underlyingLookup[underlying].eTokenAddress;
+    }
+&nbsp;
+    /// @notice Given an underlying, lookup the associated DToken
+    /// @param underlying Token address
+    /// @return DToken address, or address(0) if not activated
+    function underlyingToDToken(address underlying) external view returns (address) {
+        return eTokenLookup[underlyingLookup[underlying].eTokenAddress].dTokenAddress;
+    }
+&nbsp;
+    /// @notice Given an underlying, lookup the associated PToken
+    /// @param underlying Token address
+    /// @return PToken address, or address(0) if it doesn't exist
+    function underlyingToPToken(address underlying) external view returns (address) {
+        return reversePTokenLookup[underlying];
+    }
+&nbsp;
+    /// @notice Looks up the Euler-related configuration for a token, and resolves all default-value placeholders to their currently configured values.
+    /// @param underlying Token address
+    /// @return Configuration struct
+    function underlyingToAssetConfig(address underlying) external view returns (AssetConfig memory) {
+        return resolveAssetConfig(underlying);
+    }
+&nbsp;
+    /// @notice Looks up the Euler-related configuration for a token, and returns it unresolved (with default-value placeholders)
+    /// @param underlying Token address
+    /// @return config Configuration struct
+    function underlyingToAssetConfigUnresolved(address underlying) external view returns (AssetConfig memory config) {
+        config = underlyingLookup[underlying];
+        require(config.eTokenAddress != address(0), "e/market-not-activated");
+    }
+&nbsp;
+    /// @notice Given an EToken address, looks up the associated underlying
+    /// @param eToken EToken address
+    /// @return underlying Token address
+    function eTokenToUnderlying(address eToken) external view returns (address underlying) {
+        underlying = eTokenLookup[eToken].underlying;
+        require(underlying != address(0), "e/invalid-etoken");
+    }
+&nbsp;
+    /// @notice Given an EToken address, looks up the associated DToken
+    /// @param eToken EToken address
+    /// @return dTokenAddr DToken address
+    function eTokenToDToken(address eToken) external view returns (address dTokenAddr) {
+        dTokenAddr = eTokenLookup[eToken].dTokenAddress;
+        require(dTokenAddr != address(0), "e/invalid-etoken");
+    }
+&nbsp;
+&nbsp;
+    function getAssetStorage(address underlying) private view returns (AssetStorage storage) {
+        address eTokenAddr = underlyingLookup[underlying].eTokenAddress;
+        require(eTokenAddr != address(0), "e/market-not-activated");
+        return eTokenLookup[eTokenAddr];
+    }
+&nbsp;
+    /// @notice Looks up an asset's currently configured interest rate model
+    /// @param underlying Token address
+    /// @return Module ID that represents the interest rate model (IRM)
+    function interestRateModel(address underlying) external view returns (uint) {
+        AssetStorage storage assetStorage = getAssetStorage(underlying);
+&nbsp;
+        return assetStorage.interestRateModel;
+    }
+&nbsp;
+    /// @notice Retrieves the current interest rate for an asset
+    /// @param underlying Token address
+    /// @return The interest rate in yield-per-second, scaled by 10**27
+    function interestRate(address underlying) external view returns (int96) {
+        AssetStorage storage assetStorage = getAssetStorage(underlying);
+&nbsp;
+        return assetStorage.interestRate;
+    }
+&nbsp;
+    /// @notice Retrieves the current interest rate accumulator for an asset
+    /// @param underlying Token address
+    /// @return An opaque accumulator that increases as interest is accrued
+    function interestAccumulator(address underlying) external view returns (uint) {
+        AssetStorage storage assetStorage = getAssetStorage(underlying);
+        AssetCache memory assetCache = loadAssetCacheRO(underlying, assetStorage);
+&nbsp;
+        return assetCache.interestAccumulator;
+    }
+&nbsp;
+    /// @notice Retrieves the reserve fee in effect for an asset
+    /// @param underlying Token address
+    /// @return Amount of interest that is redirected to the reserves, as a fraction scaled by RESERVE_FEE_SCALE (4e9)
+    function reserveFee(address underlying) external view returns (uint32) {
+        AssetStorage storage assetStorage = getAssetStorage(underlying);
+&nbsp;
+        return assetStorage.reserveFee == type(uint32).max ? uint32(DEFAULT_RESERVE_FEE) : assetStorage.reserveFee;
+    }
+&nbsp;
+    /// @notice Retrieves the pricing config for an asset
+    /// @param underlying Token address
+    /// @return pricingType (1=pegged, 2=uniswap3, 3=forwarded)
+    /// @return pricingParameters If uniswap3 pricingType then this represents the uniswap pool fee used, otherwise unused
+    /// @return pricingForwarded If forwarded pricingType then this is the address prices are forwarded to, otherwise address(0)
+    function getPricingConfig(address underlying) external view returns (uint16 pricingType, uint32 pricingParameters, address pricingForwarded) {
+        AssetStorage storage assetStorage = getAssetStorage(underlying);
+&nbsp;
+        pricingType = assetStorage.pricingType;
+        pricingParameters = assetStorage.pricingParameters;
+&nbsp;
+        pricingForwarded = pricingType == PRICINGTYPE__FORWARDED ? pTokenLookup[underlying] : address(0);
+    }
+&nbsp;
+    
+    // Enter/exit markets
+&nbsp;
+    /// @notice Retrieves the list of entered markets for an account (assets enabled for collateral or borrowing)
+    /// @param account User account
+    /// @return List of underlying token addresses
+    function getEnteredMarkets(address account) external view returns (address[] memory) {
+        return getEnteredMarketsArray(account);
+    }
+&nbsp;
+    /// @notice Add an asset to the entered market list, or do nothing if already entered
+    /// @param subAccountId 0 for primary, 1-255 for a sub-account
+    /// @param newMarket Underlying token address
+    function enterMarket(uint subAccountId, address newMarket) external nonReentrant {
+        address msgSender = unpackTrailingParamMsgSender();
+        address account = getSubAccount(msgSender, subAccountId);
+&nbsp;
+        require(underlyingLookup[newMarket].eTokenAddress != address(0), "e/market-not-activated");
+&nbsp;
+        doEnterMarket(account, newMarket);
+    }
+&nbsp;
+    /// @notice Remove an asset from the entered market list, or do nothing if not already present
+    /// @param subAccountId 0 for primary, 1-255 for a sub-account
+    /// @param oldMarket Underlying token address
+    function exitMarket(uint subAccountId, address oldMarket) external nonReentrant {
+        address msgSender = unpackTrailingParamMsgSender();
+        address account = getSubAccount(msgSender, subAccountId);
+&nbsp;
+        AssetConfig memory config = resolveAssetConfig(oldMarket);
+        AssetStorage storage assetStorage = eTokenLookup[config.eTokenAddress];
+&nbsp;
+        uint balance = assetStorage.users[account].balance;
+        uint owed = assetStorage.users[account].owed;
+&nbsp;
+        require(owed == 0, "e/outstanding-borrow");
+&nbsp;
+        doExitMarket(account, oldMarket);
+&nbsp;
+        if (config.collateralFactor != 0 &amp;&amp; balance != 0) {
+            checkLiquidity(account);
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon May 16 2022 12:21:20 GMT+0100 (British Summer Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
